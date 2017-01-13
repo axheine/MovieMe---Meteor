@@ -11,13 +11,14 @@ Template.login.events({
 	'submit .login_form'(event) {
 		// Prevent default browser form submit
 		event.preventDefault();
-		Session.set("infoMessage", undefined);
+		Session.set("infoMessage", "Tentative de connexion...");
 
 		let pseudo = $('.login_form > .pseudo').val();
 		let pwd = $('.login_form > .password').val();
 		
 		Meteor.loginWithPassword(pseudo, pwd, function(err) {
 			if(!err) {
+				Session.set("infoMessage", undefined);
 				Router.go('home');
 			}
 			else {
