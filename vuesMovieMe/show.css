@@ -1,0 +1,28 @@
+body {
+    background-color: #212121;
+}
+
+.navbar {
+    margin: 0;
+    padding-left: 35px;
+}
+.navbar-default {
+    background-color: #B71C1C !important;
+}
+.header-support {
+    height: 10vh;
+    width: 100%;
+    background-color: #B71C1C;
+    padding-left: 50px;
+    color: #E0E0E0;
+}
+
+.movie-zone {
+    height: 83vh;
+    width: 60%;
+    background-color: #f0f0f0;
+    z-index: 10;
+    position: absolute;
+    top: 13vh;
+    left: 20%;
+}

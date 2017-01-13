@@ -28,7 +28,6 @@ ejson@1.0.13
 email@1.1.18
 es5-shim@4.6.15
 fastclick@1.0.13
-fezvrasta:bootstrap-material-design@0.5.9
 geojson-utils@1.0.10
 hot-code-push@1.0.4
 html-tools@1.0.11
@@ -44,13 +43,11 @@ iron:location@1.0.11
 iron:middleware-stack@1.1.0
 iron:router@1.0.13
 iron:url@1.0.11
-jagi:astronomy@2.3.12
 jquery@1.11.10
 launch-screen@1.0.12
 livedata@1.0.18
 localstorage@1.0.12
 logging@1.1.16
-mdg:validation-error@0.5.1
 meteor@1.6.0
 meteor-base@1.0.4
 minifier-css@1.2.15
@@ -87,7 +84,6 @@ templating-compiler@1.2.15
 templating-runtime@1.2.15
 templating-tools@1.0.5
 tracker@1.1.1
-twbs:bootstrap@3.3.6
 ui@1.0.12
 underscore@1.0.10
 url@1.0.11
