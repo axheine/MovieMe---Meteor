@@ -1,3 +1,7 @@
 <template name="home">
-	Home
+	{{setTitle "Accueil"}}
+	Accueil
+	<br>
+	<form class="logout_form"><input class="logout_button" type="submit" value="Se déconnecter"></form>
+	<span id="message_zone">{{getInfoMessage}}</span>
 </template>

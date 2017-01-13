@@ -16,18 +16,24 @@ sur toute l'application
 
 ApplicationController = RouteController.extend({
 	onBeforeAction: function() {
-		var user = Meteor.user();
-		// pas loggé
-		if(!user) {
-			console.log("Redirection to login page...");
-			this.render('login');
-		}
-		// Pas liké assez de films
-		else if(!hasLikedEnoughMovies(user)) {
-			this.render('proposeMovie');
+		if(!this.ready() || Meteor.loggingIn()) {
+			this.next();
+			//this.render('loading');
 		}
 		else {
-			this.next();
+			var user = Meteor.user();
+			// pas loggé
+			if(!user) {
+				//console.log("Redirection to login page...");
+				this.render('login', {message: "Loggez vous"});
+			}
+			// Pas liké assez de films
+			else if(!hasLikedEnoughMovies(user)) {
+				this.render('proposeMovie');
+			}
+			else {
+				this.next();
+			}
 		}
 	}
 });
@@ -37,7 +43,8 @@ ApplicationController = RouteController.extend({
 Configuration globale du routeur : on définit le controlleur par défaut pour toute route
 */
 Router.configure({
-	controller: 'ApplicationController'
+	controller: 'ApplicationController',
+	notFoundTemplate: 'notFoundTemplate'
 });
 
 
