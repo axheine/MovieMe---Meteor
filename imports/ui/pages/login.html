@@ -1,6 +1,6 @@
 <template name="login">
 	{{setTitle "Login/Sign Up"}}
-	Login
+<!--	Login
 	<form name="login_form" class="login_form" method="post">
 		<input type="text" class="pseudo"><br>
 		<input type="password" class="password"><br>
@@ -13,7 +13,6 @@
 		<input type="text" class="pseudo" required><br>
 		Email: <br>
 		<input type="email" class="email" required><br>
-		<!-- Oui je sais j'ai bricolé, help Axel T-T  -->
 		Password: <br>
 		<input type="password" class="password"  name="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password2.pattern = this.value;" placeholder="Tapez votre mot de passe" required><br>
 		Repeat password: <br>
@@ -21,5 +20,54 @@
 		<input type="submit" value="S'inscrire">
 	</form>
 
-	<span id="message_zone">{{getInfoMessage}}</span>
+	<span id="message_zone">{{getInfoMessage}}</span>-->
+
+	<div class="container">
+        <div class="card"></div>
+        <div class="card">
+            <h1 class="title">Login</h1>
+            <form name="login_form" class="login_form" method="post">
+                <div class="input-container">
+                    <input class="pseudo" type="text" id="login" required="required"/>
+                    <label for="login">Username</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input class="password" type="password" id="passwd" required="required"/>
+                    <label for="passwd">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <input type="submit" value="Se connecter">
+                </div>
+                <div class="footer"><a href="#">Forgot your password?</a></div>
+            </form>
+        </div>
+        <div class="card alt">
+            <div class="toggle"></div>
+            <h1 class="title">Register
+                <div class="close"></div>
+            </h1>
+            <form name="register_form" class="register_form" method="post">
+                <div class="input-container">
+                    <input class="pseudo" type="text" id="login" required="required"/>
+                    <label for="login">Username</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input class="password" type="password" id="password" required="required"/>
+                    <label for="password">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input class="password" type="password" id="password-repeat" required="required"/>
+                    <label for="password-repeat">Repeat Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button><span>Next</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
 </template>

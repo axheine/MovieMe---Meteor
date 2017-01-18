@@ -4,6 +4,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
 import './login.html';
+import './login.css';
 
 
 
@@ -15,7 +16,7 @@ Template.login.events({
 
 		let pseudo = $('.login_form > .pseudo').val();
 		let pwd = $('.login_form > .password').val();
-		
+
 		Meteor.loginWithPassword(pseudo, pwd, function(err) {
 			if(!err) {
 				Session.set("infoMessage", undefined);
@@ -50,5 +51,14 @@ Template.login.events({
 				Session.set("infoMessage", err.reason);
 			}
 		});
+	},
+
+	'click .toggle'(event) {
+		$('.container').stop().addClass('active');
+	},
+
+	'click .close'(event) {
+		$('.container').stop().removeClass('active');
 	}
+
 });
