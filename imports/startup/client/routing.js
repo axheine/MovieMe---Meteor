@@ -1,6 +1,8 @@
 
 import { Meteor } from 'meteor/meteor';
-
+import { Router, RouteController } from 'meteor/iron:router';
+import '../../api/lists/lists_definition.js';
+import '../../api/lists/cachedmovies_definition.js';
 
 hasLikedEnoughMovies = function(user) {
 	return true;
@@ -37,7 +39,6 @@ ApplicationController = RouteController.extend({
 		}
 	}
 });
-
 
 /*
 Configuration globale du routeur : on définit le controlleur par défaut pour toute route
@@ -78,6 +79,14 @@ Router.route('/proposeMovie', {
 // Affichage "mes listes"
 Router.route('/mylists', {
 	name: 'mylists',
+	subscriptions: function() {
+		return Meteor.subscribe("user-lists", Meteor.userId());
+	},
+	data: function() {
+		return {
+			userLists: List.find({user: Meteor.userId()})
+		};
+	},
 	action: function() {
 		this.render('mylists');
 	}

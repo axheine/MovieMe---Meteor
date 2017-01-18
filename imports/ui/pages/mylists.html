@@ -1,0 +1,10 @@
+<template name="mylists">
+	<a href="{{pathFor route='home'}}">Accueil</a>	
+	<h2>Mes listes</h2>
+	<ul>
+	{{#each list in userLists}}
+		<li>{{list.name}}</li>
+	{{/each}}
+	</ul>
+
+</template>
