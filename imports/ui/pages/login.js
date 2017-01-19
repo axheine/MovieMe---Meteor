@@ -32,22 +32,24 @@ Template.login.events({
 		// Prevent default browser form submit
 		event.preventDefault();
 		Session.set("infoMessage", undefined);
-
+		console.log("création du compte...");
+		
 		let pseudo = $('.register_form .pseudo').val();
 		let email = $('.register_form .email').val();
 		let pwd = $('.register_form .password').val();
-
+	
 		let userInfos = {
 			username: pseudo,
 			password: pwd,
 			email: email
 		};
-
+		
 		Accounts.createUser(userInfos, function(err) {
 			if(!err) {
 				Router.go('home');
 			}
 			else {
+			console.log("erreur:"+err.reason);
 				Session.set("infoMessage", err.reason);
 			}
 		});

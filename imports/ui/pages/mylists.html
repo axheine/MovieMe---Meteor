@@ -1,10 +1,14 @@
-<template name="mylists">
-	<a href="{{pathFor route='home'}}">Accueil</a>	
+﻿<template name="mylists">
+	{{setTitle "Mes listes"}}
+	<a href="{{pathFor route='home'}}">Accueil</a>
 	<h2>Mes listes</h2>
 	<ul>
 	{{#each list in userLists}}
-		<li>{{list.name}}</li>
+		<li>{{> list_overview list=list}}&nbsp;{{{buildDeleteButton list}}}</li>
 	{{/each}}
 	</ul>
-
+	<form class="new_list_form">
+		<input type="text" class="list_name">
+		<input type="submit" value="Créer une nouvelle liste">
+	</form>
 </template>
