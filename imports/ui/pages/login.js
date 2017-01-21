@@ -6,7 +6,9 @@ import { Session } from 'meteor/session';
 import './login.html';
 import './login.css';
 
-
+Template.login.onRendered(function() {
+  	MDSnackbars.init();
+});
 
 Template.login.events({
 	'submit .login_form'(event) {
@@ -26,6 +28,14 @@ Template.login.events({
 				Session.set("infoMessage", err.reason);
 			}
 		});
+		var toastCopied = {
+			content: Session.get("infoMessage"),
+			style: "toast",
+			timeout: 4000
+		};
+		console.log("err login");
+		var snackbar = $.snackbar(toastCopied);
+		snackbar.snackbar("show");
 	},
 
 	'submit .register_form'(event) {
@@ -33,17 +43,17 @@ Template.login.events({
 		event.preventDefault();
 		Session.set("infoMessage", undefined);
 		console.log("création du compte...");
-		
+
 		let pseudo = $('.register_form .pseudo').val();
 		let email = $('.register_form .email').val();
 		let pwd = $('.register_form .password').val();
-	
+
 		let userInfos = {
 			username: pseudo,
 			password: pwd,
 			email: email
 		};
-		
+
 		Accounts.createUser(userInfos, function(err) {
 			if(!err) {
 				Router.go('home');
@@ -53,6 +63,14 @@ Template.login.events({
 				Session.set("infoMessage", err.reason);
 			}
 		});
+
+		var toastCopied = {
+			content: Session.get("infoMessage"),
+			style: "toast",
+			timeout: 4000
+		};
+		var snackbar = $.snackbar(toastCopied);
+		snackbar.snackbar("show");
 	},
 
 	'click .toggle'(event) {
