@@ -3,39 +3,41 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
+import { MDSnackbars } from 'meteor/255kb:md-snackbars';
 import './login.html';
 import './login.css';
 
 Template.login.onRendered(function() {
-  	MDSnackbars.init();
+	MDSnackbars.init();
 });
 
 Template.login.events({
 	'submit .login_form'(event) {
 		// Prevent default browser form submit
 		event.preventDefault();
-		Session.set("infoMessage", "Tentative de connexion...");
+		//Session.set("infoMessage", "Tentative de connexion...");
 
 		let pseudo = $('.login_form .pseudo').val();
 		let pwd = $('.login_form .password').val();
 
 		Meteor.loginWithPassword(pseudo, pwd, function(err) {
 			if(!err) {
+				console.log("no error");
 				Session.set("infoMessage", undefined);
 				Router.go('home');
 			}
 			else {
+				console.log("got error " + err.reason);
 				Session.set("infoMessage", err.reason);
+				MDSnackbars.show({
+					text: err.reason,
+					fullWidth: true,
+					timeout: 3000,
+					clickToClose: true,
+					animation: 'slideup'
+				});
 			}
 		});
-		var toastCopied = {
-			content: Session.get("infoMessage"),
-			style: "toast",
-			timeout: 4000
-		};
-		console.log("err login");
-		var snackbar = $.snackbar(toastCopied);
-		snackbar.snackbar("show");
 	},
 
 	'submit .register_form'(event) {
@@ -59,7 +61,7 @@ Template.login.events({
 				Router.go('home');
 			}
 			else {
-			console.log("erreur:"+err.reason);
+				console.log("erreur:"+err.reason);
 				Session.set("infoMessage", err.reason);
 			}
 		});
