@@ -7,7 +7,7 @@ var api_key = "e840b239578a7f7d833e52dbf8ae4ad6";
 Meteor.methods({
 	//Méthode appelant l'api pour une recherhe par nom de film
 	'search-movies': function(searchString) {
-		Session.set("search", null);
+		//Session.set("search", null);
 		var query_params = {
 			"api_key": api_key,
 			"language": "fr", //TODO: proposer un autre language dans les paramètres?
