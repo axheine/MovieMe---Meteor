@@ -1,0 +1,137 @@
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    background-color: #B71C1C;
+}
+
+div.search{
+    position: relative;
+    top: -40px;
+    background: #f9f9f9;
+    flex: 3;
+    -webkit-flex: 3;
+    margin:6px;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    border-radius:2px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    -webkit-transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -moz-transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -ms-transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -o-transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+    transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+}
+div.search{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    height: 42px;
+    padding: 0 9px;
+    overflow-x: hidden;
+}
+div.search.focused{
+    background: #F1F1F1;
+}
+div.search .search-textbox{
+    position: relative;
+    width: 85px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    text-align: start;
+    color: rgba(0,0,0,1);
+    outline: none;
+    -webkit-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -moz-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -ms-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -o-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+    transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+    cursor: pointer;
+
+}
+div.search.focused .search-textbox{
+    width:100%;
+    cursor: text;
+}
+div.search:hover span{
+    -webkit-transform: translateX(40%);
+    -moz-transform: translateX(40%);
+    -ms-transform: translateX(40%);
+    -o-transform: translateX(40%);
+    transform: translateX(40%);
+}
+.ico-btn{
+    position: relative;
+    width: 30px;
+    height:30px;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    padding:5px;
+}
+.ico-btn.search-btn, .ico-btn.clear-btn{
+    padding:3px;
+    margin: 3px;
+    opacity: 0;
+    visibility: hidden;
+
+}
+.ico-btn.clear-btn{
+    margin-right: -30px;
+    -webkit-animation:0.3s SwiftSlideToRight cubic-bezier(0.21, 0.61, 0.36, 1) 0.2s;
+    -o-animation:0.3s SwiftSlideToRight cubic-bezier(0.21, 0.61, 0.36, 1) 0.2s;
+    animation:0.3s SwiftSlideToRight cubic-bezier(0.21, 0.61, 0.36, 1) 0.2s;
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    -o-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+div.search.focused.not-null.multi-char .ico-btn.clear-btn{
+    margin-right: 0;
+    opacity: 1;
+    visibility: visible;
+    -webkit-animation:0.3s SwiftSlide cubic-bezier(0.21, 0.61, 0.36, 1);
+    -o-animation:0.3s SwiftSlide cubic-bezier(0.21, 0.61, 0.36, 1);
+    animation:0.3s SwiftSlide cubic-bezier(0.21, 0.61, 0.36, 1);
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    -o-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.ico-btn{
+    -webkit-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -moz-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -ms-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+    -o-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+    transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+}
+div.search.focused.not-null .ico-btn.search-btn{
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition-duration: 0.6s;
+    -moz-transition-duration: 0.6s;
+    -ms-transition-duration: 0.6s;
+    -o-transition-duration: 0.6s;
+    transition-duration: 0.6s;
+}
+
+
+@keyframes SwiftSlide {
+    100%{
+        margin-right: 0;
+        opacity: 1;
+    }
+}
+@keyframes SwiftSlideToRight {
+    100%{
+        opacity:0;
+        margin-right: -30px;
+    }
+}
