@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { $ } from 'meteor/jquery';
-import '../../api/search/methods.js';
 import './navbar.html';
 import './navbar.css';
 
@@ -9,7 +8,18 @@ Template.navbar.helpers({
     userName() {
         if(Meteor.user())
             return Meteor.user().username;
+    },
+
+    buildPosterPath: function(path) {
+        if(path) {
+            return '<img src="http://image.tmdb.org/t/p/w150'+path+'"/>';
+        }
+        return "";
     }
+});
+
+Template.navbar.onCreated(function(){
+
 });
 
 Template.navbar.events({
@@ -33,7 +43,7 @@ Template.navbar.events({
         $('input.search-textbox').focus();
     },
 
-    'keyup .search-textbox'(event) {
+    'keyup .search-textbox'(event, currentTemplate) {
         var parent = $('div.search');
         var elem = $(event.target);
         var search = elem.val(),
@@ -45,14 +55,24 @@ Template.navbar.events({
                 parent.addClass('not-null');
             }
             //TODO: Call server ici
+			
             Meteor.call("search-movies", search, function(error, result){
                 if(error){
                     console.log("error", error);
                 }
                 if(result){
-                    console.log("client get results : " + result);
+					try{
+						console.log("client get results!");
+                        console.log(result);
+						//currentTemplate.data.resultStorage.set("réponse reçue");
+						currentTemplate.data.resultStorage.set(result);
+					}
+					catch(e){
+						console.log("exception: ", e);
+					}
                 }
             });
+			
         }
         else if(search_length == 1){
             parent.addClass('not-null');

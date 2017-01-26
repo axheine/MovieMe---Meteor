@@ -1,8 +1,10 @@
 
 
+import './mylists.html';
+
 import '../../api/lists/methods.js';
 import '../components/list_overview.js';
-import './mylists.html';
+
 
 
 Template.mylists.helpers({

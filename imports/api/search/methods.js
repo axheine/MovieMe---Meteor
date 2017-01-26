@@ -14,17 +14,15 @@ Meteor.methods({
 			"include_adult": "false", //TODO: proposer true dans les paramètres?
 			"query": searchString
 		};
-		console.log("method called");
-		var result = HTTP.call('GET', 'http://api.themoviedb.org/3/search/movie', {params: query_params}, function(error, result) {
-			if(error) {
-				console.log("error" + error);
-			} else {
-				console.log(result.data.results);
-				return result.data.results;
-			}
-		});
-		console.log('server result' + result);
-		return result;
+		
+		try {
+			var result = HTTP.call('GET', 'http://api.themoviedb.org/3/search/movie', {params: query_params});
+			return result.data.results;
+		} 
+		catch(e) {
+			console.log("error" + error);
+			return null;
+		}
 	},
 
 	//Méthode appelant l'api pour une recherche par genre, le résultat est demandé par popularité décroissante

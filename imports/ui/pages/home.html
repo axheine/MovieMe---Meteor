@@ -1,12 +1,14 @@
 <template name="home">
 	{{setTitle "Accueil"}}
-	{{> navbar}}
+	<!--{{> navbar}}-->
 	<br>
 	<a href="{{pathFor route='mylists'}}">Mes listes</a>
 	<br>
 	<a href="#">On voit quoi ce soir? (me proposer un film)</a>
 	<br>
 	<a href="#">Mettre à jour les films que j'ai vu</a>
+	<br>
+	<a href="{{pathFor route='search'}}">Chercher un film</a>
 	<br>
 	<form class="logout_form"><input class="logout_button" type="submit" value="Se déconnecter"></form>
 	<span id="message_zone">{{getInfoMessage}}</span>

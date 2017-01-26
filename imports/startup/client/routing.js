@@ -93,6 +93,18 @@ Router.route('/mylists', {
 });
 
 
+// Recherche
+Router.route('/search', {
+	name: 'search',
+	/*subscriptions: function() {
+		return true;
+	},*/
+	action: function() {
+		this.render('search');
+	}
+});
+
+
 // Affichage d'une liste (dont films aimés? Peut-être une route à part)
 Router.route('/list/:_id', {
 	name: 'showlist',
