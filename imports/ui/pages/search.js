@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating';
 
 import '../components/navbar.js';
 
+import '../components/search_result_overview.js'
+
 import './search.html';
 
 

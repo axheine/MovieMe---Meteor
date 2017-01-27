@@ -4,6 +4,20 @@
     background-color: #B71C1C;
 }
 
+.navbar .menu-back {
+    float: left;
+}
+
+.navbar .menu-back i {
+    margin-top: -2px;
+    margin-left: -2px;
+}
+
+.navbar .navbar-brand {
+    padding-left: 0;
+    margin-left: 15px !important;
+}
+
 div.search{
     position: relative;
     top: -40px;

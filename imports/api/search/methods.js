@@ -14,12 +14,12 @@ Meteor.methods({
 			"include_adult": "false", //TODO: proposer true dans les paramètres?
 			"query": searchString
 		};
-		
+
 		try {
 			var result = HTTP.call('GET', 'http://api.themoviedb.org/3/search/movie', {params: query_params});
 			return result.data.results;
-		} 
-		catch(e) {
+		}
+		catch(error) {
 			console.log("error" + error);
 			return null;
 		}
@@ -34,21 +34,29 @@ Meteor.methods({
 	   		"include_adult": "false",
 			"with_genres": searchString,
 		};
-
-		var api_call_result = HTTP.call( 'GET', "http://api.themoviedb.org/3/discover/movie", {params: params});
-		return api_call_result.data.results;
+		try {
+			var api_call_result = HTTP.call( 'GET', "http://api.themoviedb.org/3/discover/movie", {params: params});
+			return api_call_result.data.results;
+		}
+		catch(error) {
+			console.log("error" + error);
+			return null;
+		}
 	},
 
 	//Méthode retournant le détail pour un id de film donné
 	'get-movie-detail': function(movieId){
-		var api_call_result = HTTP.call(
-			'GET', "https://api.themoviedb.org/3/movie/" + movieId, {
-	  			params: {
-	    			"api_key": api_key,
-	    			"language": "fr"
-	  			}
-			});
-
-		return api_call_result.data;
+		var params = {
+			"api_key": api_key,
+			"language": "fr"
+		};
+		try {
+			var api_call_result = HTTP.call( 'GET', "https://api.themoviedb.org/3/movie/" + movieId, {params: params});
+			return api_call_result.data;
+		}
+		catch(error) {
+			console.log("error" + error);
+			return null;
+		}
 	}
 });

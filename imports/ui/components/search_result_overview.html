@@ -1,0 +1,9 @@
+<template name="search_result_overview">
+    <div class="col-md-12">
+        {{#each movie in list.get}}
+            <div class="row">
+                {{> movie_overview movie=movie}}
+            </div>
+    	{{/each}}
+    </div>
+</template>

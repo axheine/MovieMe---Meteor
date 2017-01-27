@@ -21,58 +21,59 @@
 	</form>
 
 	<span id="message_zone">{{getInfoMessage}}</span>-->
-
-	<div class="container">
-        <div class="login-card"></div>
-        <div class="login-card">
-            <h1 class="title">Connexion</h1>
-            <form name="login_form" class="login_form" method="post">
-                <div class="input-container">
-                    <input class="pseudo" type="text" id="login" required="required"/>
-                    <label for="login">Pseudo</label>
-                    <div class="bar"></div>
-                </div>
-                <div class="input-container">
-                    <input class="password" type="password" id="passwd" required="required"/>
-                    <label for="passwd">Mot de passe</label>
-                    <div class="bar"></div>
-                </div>
-                <div class="button-container">
-                    <input class="button span" type="submit" value="Se connecter">
-                </div>
-                <div class="footer"><a href="#">Mot de passe oublié?</a></div>
-            </form>
-        </div>
-        <div class="login-card alt">
-            <div class="toggle"></div>
-            <h1 class="title">Inscription
-                <div class="close"></div>
-            </h1>
-            <form name="register_form" class="register_form" method="post">
-                <div class="input-container">
-                    <input class="pseudo" type="text" id="login" required="required"/>
-                    <label for="login">Pseudo</label>
-                    <div class="bar"></div>
-                </div>
-				<div class="input-container">
-                    <input class="mail" type="text" id="mail" required="required"/>
-                    <label for="login">Email</label>
-                    <div class="bar"></div>
-                </div>
-                <div class="input-container">
-                    <input class="password" type="password" id="password" required="required"/>
-                    <label for="password">Mot de passe</label>
-                    <div class="bar"></div>
-                </div>
-                <div class="input-container">
-                    <input class="password" type="password" id="password-repeat" required="required"/>
-                    <label for="password-repeat">Vérification du mot de passe</label>
-                    <div class="bar"></div>
-                </div>
-                <div class="button-container">
-                    <input class="button button-register span" type="submit" value="S'inscrire">
-                </div>
-            </form>
-        </div>
-    </div>
+	<div class="login-container">
+		<div class="container">
+	        <div class="login-card"></div>
+	        <div class="login-card">
+	            <h1 class="title">Connexion</h1>
+	            <form name="login_form" class="login_form" method="post">
+	                <div class="input-container">
+	                    <input class="pseudo" type="text" id="login" required="required"/>
+	                    <label for="login">Pseudo</label>
+	                    <div class="bar"></div>
+	                </div>
+	                <div class="input-container">
+	                    <input class="password" type="password" id="passwd" required="required"/>
+	                    <label for="passwd">Mot de passe</label>
+	                    <div class="bar"></div>
+	                </div>
+	                <div class="button-container">
+	                    <input class="button span" type="submit" value="Se connecter">
+	                </div>
+	                <div class="footer"><a href="#">Mot de passe oublié?</a></div>
+	            </form>
+	        </div>
+	        <div class="login-card alt">
+	            <div class="toggle"></div>
+	            <h1 class="title">Inscription
+	                <div class="close"></div>
+	            </h1>
+	            <form name="register_form" class="register_form" method="post">
+	                <div class="input-container">
+	                    <input class="pseudo" type="text" id="login" required="required"/>
+	                    <label for="login">Pseudo</label>
+	                    <div class="bar"></div>
+	                </div>
+					<div class="input-container">
+	                    <input class="mail" type="text" id="mail" required="required"/>
+	                    <label for="login">Email</label>
+	                    <div class="bar"></div>
+	                </div>
+	                <div class="input-container">
+	                    <input class="password" type="password" id="password" required="required"/>
+	                    <label for="password">Mot de passe</label>
+	                    <div class="bar"></div>
+	                </div>
+	                <div class="input-container">
+	                    <input class="password" type="password" id="password-repeat" required="required"/>
+	                    <label for="password-repeat">Vérification du mot de passe</label>
+	                    <div class="bar"></div>
+	                </div>
+	                <div class="button-container">
+	                    <input class="button button-register span" type="submit" value="S'inscrire">
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
 </template>

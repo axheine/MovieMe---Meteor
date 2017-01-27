@@ -1,5 +1,7 @@
 <template name="search">
 	{{setTitle "Recherche"}}
-	<a href="{{pathFor route='home'}}">Accueil</a>
 	{{> navbar resultStorage=(getResultStorage)}}
+	<div class="contairer-fluid">
+		{{> search_result_overview list=(getResultStorage)}}
+	</div>
 </template>

@@ -5,30 +5,12 @@ body {
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*overflow: hidden;*/
 }
 
-/* Pen Title */
-.pen-title {
-    padding: 50px 0;
-    text-align: center;
-    letter-spacing: 2px;
-}
-.pen-title h1 {
-    margin: 0 0 20px;
-    font-size: 48px;
-    font-weight: 300;
-}
-.pen-title span {
-    font-size: 12px;
-}
-.pen-title span .fa {
-    color: #B71C1C;
-}
-.pen-title span a {
-    color: #B71C1C;
-    font-weight: 600;
-    text-decoration: none;
+.login-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* Rerun */
@@ -50,42 +32,6 @@ body {
 }
 .rerun a:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-/* Scroll To Bottom */
-#codepen, #portfolio {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #363636;
-    width: 56px;
-    height: 56px;
-    border-radius: 100%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
-    color: #ffffff;
-    text-align: center;
-}
-#codepen i, #portfolio i {
-    line-height: 56px;
-}
-#codepen:hover, #portfolio:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-
-/* CodePen */
-#portfolio {
-    bottom: 96px;
-    right: 36px;
-    background: #B71C1C;
-    width: 44px;
-    height: 44px;
-    -webkit-animation: buttonFadeInUp 1s ease;
-    animation: buttonFadeInUp 1s ease;
-}
-#portfolio i {
-    line-height: 44px;
 }
 
 /* Container */

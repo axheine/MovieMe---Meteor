@@ -5,16 +5,9 @@ import './navbar.css';
 
 
 Template.navbar.helpers({
-    userName() {
+    userName: function() {
         if(Meteor.user())
             return Meteor.user().username;
-    },
-
-    buildPosterPath: function(path) {
-        if(path) {
-            return '<img src="http://image.tmdb.org/t/p/w150'+path+'"/>';
-        }
-        return "";
     }
 });
 
@@ -55,7 +48,7 @@ Template.navbar.events({
                 parent.addClass('not-null');
             }
             //TODO: Call server ici
-			
+
             Meteor.call("search-movies", search, function(error, result){
                 if(error){
                     console.log("error", error);
@@ -72,7 +65,7 @@ Template.navbar.events({
 					}
                 }
             });
-			
+
         }
         else if(search_length == 1){
             parent.addClass('not-null');
